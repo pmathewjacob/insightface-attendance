@@ -100,8 +100,8 @@ elif args.check:
                 target_feature = np.array(students[student_id]['features'])
                 #print(target_feature.shape)
                 diff = np.subtract(source_features, target_feature)
-                dist = np.sum(np.square(diff),2)
-                #print(dist)
+                dist = np.sum(np.square(diff), 2)
+                print(dist)
                 if len(dist[dist<=args.threshold]) > 0:
                     print('%s %s found' % (student_id, students[student_id]['name']))
                 else:
