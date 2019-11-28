@@ -15,7 +15,7 @@ img = image.load_img('thao.png', target_size = (112, 112))
 img = image.img_to_array(img, dtype='int32')
 img = img[..., ::-1]
 
-print(img)
+# print(img)
 
 input_data = np.expand_dims(img, 0)
 
@@ -30,12 +30,12 @@ input_data2 = np.expand_dims(img2, 0)
 with tf.Session() as sess:
     init = tf.global_variables_initializer()
     sess.run(init)
-    predict = sklearn.preprocessing.normalize(sess.run(model_tf, feed_dict = {input_tf : input_data}))
-    predict2 = sklearn.preprocessing.normalize(sess.run(model_tf, feed_dict = {input_tf: input_data2}))
+    predict = np.squeeze(sess.run(model_tf, feed_dict = {input_tf : input_data}))
+    # predict2 = sklearn.preprocessing.normalize(sess.run(model_tf, feed_dict = {input_tf: input_data2}))
 
 print("----------")
 print(predict)
 print("----------")
-diff = np.subtract(predict, predict2)
-dist = np.sum(np.square(diff))
+# diff = np.subtract(predict, predict2)
+dist = np.sum(np.square(predict))
 print(dist)
