@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title> introAI - Home</title>	<!-- <title> used to write page's name showed on the tab -->
+		<meta name = "introAI" content = "webtest">	<!-- <meta> used for search engine to search the page -->
+		<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+		<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+		<link href = "css/index.css" rel = "stylesheet" type = "text/css">
+		<link rel="icon" type="image/png" href="media/favicon.png"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		
+	</head>
+	
+	<body>
+		<div id="wrapper" class="wrapper">
+			<img id="background" class="background" src="media/background.jpg">
+
+			<!-- Main content -->
+			<div id="main-content" class="main-content">
+				<div id="register-box" class="register-box">
+					<div id="register-title" class="register-title">
+						<p><b><u><h1>Register new class</h1></u></b></p>
+					</div>
+					<div id="register-content" class="register-content">
+						<form id="register" method="post" class="register" enctype="multipart/form-data">
+							<div class="input-div">
+								<input type="file" accept="image/jpeg" name="classPhoto" required>
+							</div>
+							<div class="register-button-frame">
+								<input type="image" src="media/register_button.jpg" alt="Submit" class="register-button">
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<div id="attendance-box" class="attendance-box">
+					<div id="attendance-title" class="attendance-title">
+						<p><b><u><h1>Check attendance</h1></u></b></p>
+					</div>
+					<div id="attendance-content" class="attendance-content">
+						<form id="attendance" method="post" class="attendance" enctype="multipart/form-data">
+							<div class="input-div">
+								<input type="file" accept="image/jpeg" name="classPhoto" required>
+							</div>
+							<div class="attendance-button-frame">
+								<input type="image" src="media/attendance_button.jpg" alt="Submit" class="attendance-button">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- End of main content -->
+			
+		</div>
+
+		<script src="js/index.js"></script>
+	</body>
+
+</html>
