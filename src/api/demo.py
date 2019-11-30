@@ -69,9 +69,9 @@ elif args.edit:
             #     target_face_list.append(target_face)
             #   pp+=1
             # print('target face', len(target_face_list)) 
-            # target_feature = None
+            target_feature = None
             for target_face in target_face_list:
-              _feature = model.get_feature(target_face, False)
+              _feature = model.get_feature(np.transpose(target_face, (2,0,1)), False)
               if target_feature is None:
                 target_feature = _feature
               else:
