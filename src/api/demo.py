@@ -57,19 +57,19 @@ elif args.edit:
             students[student_id]['name'] = name
             pictures = input('Pictures: ')
             pictures_list = [int(i) for i in pictures.split(',')]
-            target_img_list = [cv2.imread(data['faces_path'] + str(picture) + '.png') for picture in pictures_list]
-            target_face_list = []
-            pp = 0
-            for img in target_img_list:
-              target_force = False
-              if pp==len(target_img_list)-1 and len(target_face_list)==0:
-                target_force = True
-              target_face = model.get_aligned_face(img, target_force)
-              if target_face is not None:
-                target_face_list.append(target_face)
-              pp+=1
-            print('target face', len(target_face_list)) 
-            target_feature = None
+            target_face_list = [cv2.imread(data['faces_path'] + str(picture) + '.png') for picture in pictures_list]
+            # target_face_list = []
+            # pp = 0
+            # for img in target_img_list:
+            #   target_force = False
+            #   if pp==len(target_img_list)-1 and len(target_face_list)==0:
+            #     target_force True
+            #   target_face = model.get_aligned_face(img, target_force)
+            #   if target_face is not None:
+            #     target_face_list.append(target_face)
+            #   pp+=1
+            # print('target face', len(target_face_list)) 
+            # target_feature = None
             for target_face in target_face_list:
               _feature = model.get_feature(target_face, False)
               if target_feature is None:
