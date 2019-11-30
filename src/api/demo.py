@@ -16,6 +16,7 @@ parser.add_argument('--gpu', default=0, type=int, help='gpu id')
 parser.add_argument('--threshold', default=1.24, type=float, help='ver dist threshold')
 parser.add_argument('--source-image', default= None, help='path to source image')
 parser.add_argument('--source-data', default='./source.json', help='path to source data')
+parser.add_argument('--detected-face', default='./detected/', help='path to detected face folder')
 args = parser.parse_args()
 
 
@@ -90,17 +91,27 @@ elif args.check:
     else:
         model = face_model.FaceModel(args)
         faces = model.get_all_faces(source_img)
+        if len(faces) == 0:
+            print('Detected 0 faces')
+            exit(0)
         source_features = np.array([model.get_feature(face, True) for face in faces])
         #print(source_features.shape)
-        print('Detected %d faces' % (len(faces)))
         with open(args.source_data) as data_file:
             data = json.load(data_file)
             students = data['students']
-            for student_id in students:
-                target_feature = np.array(students[student_id]['features'])
-                #print(target_feature.shape)
-                diff = np.subtract(source_features, target_feature)
+            student_ids = [stid for stid in students]
+            target_feature = np.array([students[stid]['features'] for stid in student_ids])
+            i = 0
+            num_feat = 0
+            for feature in source_features:
+                diff = np.subtract(target_feature, feature)
                 dist = np.sum(np.square(diff), 2)
-                print(dist)
-                if len(dist[dist<=args.threshold]) > 0:
-                    print('%s - %s' % (student_id, students[student_id]['name']))
+                #print(dist)
+                minidx = np.argmin(dist)
+                #print(np.ndarray.flatten(dist)[minidx])
+                if np.ndarray.flatten(dist)[minidx] <= args.threshold:
+                    print('%s - %s' % (student_ids[minidx], students[student_ids[minidx]]['name']))
+                    i += 1
+                    cv2.imwrite('./detected_faces/' + str(i) + '.png', np.transpose(faces[num_feat], (1,2,0))) 
+                num_feat += 1
+            print('Detected %d faces' % i)
