@@ -56,7 +56,7 @@ class FaceModel:
     assert len(_vec)==2
     prefix = _vec[0]
     epoch = int(_vec[1])
-    print('loading',prefix, epoch)
+    #print('loading',prefix, epoch)
     self.model = edict()
     #self.model.ctx = mx.gpu(args.gpu)
     self.model.ctx = mx.cpu()
