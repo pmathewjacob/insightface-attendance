@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+server/node_modules/
+server/attendance.html
+server/register.html
+server/photo.jpg
