@@ -22,7 +22,7 @@ source ./venv/bin/activate
 ```
 - Install requirements
 ```console
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 ## Usage
@@ -52,3 +52,38 @@ We provide model of VarGFaceNet trained on cleaned MS1M dataset with accuracy:
 | Method  | LFW(%)  | CFP-FP(%) | AgeDB-30(%) | 
 | ------- | ------- | --------- | ----------- | 
 |  Ours   | 0.997   | 0.971     | 0.968       |
+
+## Web platform for attendance check
+
+Our web platform for attendance is built from HTML-CSS-Javascript (client side) and NodeJS (server side).
+
+### How to setup web platform
+
+- Access the "server/" folder
+```console
+cd server/
+```
+
+- Install NodeJS
+```console
+sudo apt install nodejs
+```
+
+- Install NPM
+```console
+sudo apt install npm
+```
+
+- Install some required node modules:
+```console
+npm install body-parser
+npm install express
+npm install multer
+```
+
+- Run the server
+```console
+node server.js
+```
+
+Now you can test the platform by access site "http://localhost:3000" from your browser.
