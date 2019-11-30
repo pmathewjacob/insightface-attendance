@@ -103,6 +103,4 @@ elif args.check:
                 dist = np.sum(np.square(diff),2)
                 #print(dist)
                 if len(dist[dist<=args.threshold]) > 0:
-                    print('%s %s found' % (student_id, students[student_id]['name']))
-                else:
-                    print('%s %s not found' % (student_id, students[student_id]['name']))
+                    print('%s - %s' % (student_id, students[student_id]['name']))

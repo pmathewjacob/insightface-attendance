@@ -22,10 +22,10 @@ exports.registerNewClass = function(req, res, callback){
 					"</head>" + "\n" +
 
 					"<body>" + "\n" +
-						"<h1>Fill in student information:</h1>" + "\n" +
 						"<div id=\"wrapper\" class=\"wrapper\">" + "\n" +
 							//"<img id=\"background\" class=\"background\" src=\"media/background.jpg\">" + "\n" +
 							"<div id=\"main-content\" class=\"main-content\">" + "\n" +
+								"<h1>Fill in student information:</h1>" + "\n" +
 								"<form id=\"assign\" method=\"post\" class=\"assign\">" + "\n";
 			    
 			    var cnt = 0;
@@ -103,20 +103,24 @@ exports.checkAttendance = function(req, res, callback){
 	exec("python ../src/api/demo.py -c --source-image ./photo.jpg --model ../recognition/models/vargfacenet-arcface-retina/model,1", function(err, stdout, stderr){
 		if(err) throw err;
 		var content = 
-			"<!DOCTYPE html>" + "\n" +
-			"<html>" + "\n" +
-				"<head>" + "\n" +
-					"<title> introAI - Register class</title>" + "\n" +
-					"<link href = \"css/register.css\" rel = \"stylesheet\" type = \"text/css\">" + "\n" +
-					"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js\"></script>" + "\n" +
-				"</head>" + "\n" +
+		"<!DOCTYPE html>" + "\n" +
+		"<html>" + "\n" +
+			"<head>" + "\n" +
+				"<title> introAI - Register class</title>" + "\n" +
+				"<link href = \"css/attendance.css\" rel = \"stylesheet\" type = \"text/css\">" + "\n" +
+				"<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js\"></script>" + "\n" +
+			"</head>" + "\n" +
 
-				"<body>" + "\n" +
-					"<h1>Students detected:</h1>" + "\n" +
-					stdout.replace(/\n/g, "</br>\n") +
-					"<script src=\"js/register.js\"></script>" + "\n" +
-				"</body>" + "\n" +
-			"</html>";
+			"<body>" + "\n" +
+				"<div id=\"wrapper\" class=\"wrapper\">" + "\n" +
+					"<div id=\"main-content\" class=\"main-content\">" + "\n" +
+						"<h1>Students detected:</h1>" + "\n" +
+						stdout.replace(/\n/g, "</br>\n") +
+					"</div>" + "\n" +
+				"</div>" + "\n" +
+				"<script src=\"js/attendance.js\"></script>" + "\n" +
+			"</body>" + "\n" +
+		"</html>";
 
 		fs.writeFile("attendance.html", content, function(err) {
 		    if(err) throw err;
