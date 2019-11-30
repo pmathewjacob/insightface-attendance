@@ -12,7 +12,7 @@ This is a project based on [InsightFace: 2D and 3D Face Analysis Project](https:
 
 - Clone the repository
 ```console
-git clone https://github.com/nv-quan/insightface-attendance.git
+git clone -b deploy https://github.com/nv-quan/insightface-attendance.git
 cd insightface-attendance
 ```
 - Install and open python virtual environment (optional) 
