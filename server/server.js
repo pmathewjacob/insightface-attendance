@@ -11,7 +11,7 @@ var multer = require('multer');
 
 var action = require('./action.js');
 
-const upload = multer({dest: __dirname + '/uploads'});
+const upload = multer({dest: __dirname});
 
 const handleError = (err, res) => {
   res
