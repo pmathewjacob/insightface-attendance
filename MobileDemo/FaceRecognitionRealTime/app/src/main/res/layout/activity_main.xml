@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo"
         android:layout_width="195dp"
         android:layout_height="137dp"
         android:src="@mipmap/taskcon"
@@ -39,6 +39,7 @@
 
         <Button
             android:id="@+id/btnAddFace"
+            android:clickable="true"
             android:layout_width="323dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
@@ -62,7 +63,7 @@
             android:textSize="28dp" />
 
         <Button
-            android:id="@+id/btnDetectFace"
+            android:id="@+id/btnDetectRealTime"
             android:layout_width="323dp"
             android:layout_height="63dp"
             android:layout_gravity="center"
