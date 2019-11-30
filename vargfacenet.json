@@ -4,6 +4,24 @@
       "name": "data",
       "op": "DataInput",
       "attr": {
+        "shape": {
+          "shape": {
+            "dim": [
+              {
+                "size": "-1"
+              },
+              {
+                "size": "112"
+              },
+              {
+                "size": "112"
+              },
+              {
+                "size": "3"
+              }
+            ]
+          }
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -22,24 +40,6 @@
                     "size": "3"
                   }
                 ]
-              }
-            ]
-          }
-        },
-        "shape": {
-          "shape": {
-            "dim": [
-              {
-                "size": "-1"
-              },
-              {
-                "size": "112"
-              },
-              {
-                "size": "112"
-              },
-              {
-                "size": "3"
               }
             ]
           }
@@ -125,26 +125,6 @@
         "mulscalar0"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "3",
-              "40"
-            ]
-          }
-        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -199,6 +179,26 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "3",
+              "40"
+            ]
+          }
         }
       }
     },
@@ -209,6 +209,12 @@
         "vargface_head_conv1"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -239,12 +245,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -286,6 +286,42 @@
         "vargface_head_conv1_act"
       ],
       "attr": {
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "40",
+              "40"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -324,42 +360,6 @@
         },
         "group": {
           "i": "5"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "40",
-              "40"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "2",
-              "2",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -454,6 +454,21 @@
         "vargface_head_head_pooling_sep1_data_conv2d_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -475,21 +490,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -500,21 +500,6 @@
         "vargface_head_head_pooling_shortcut_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -536,6 +521,21 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -608,6 +608,32 @@
         "vargface_head_head_pooling_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "40",
+              "40"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -656,32 +682,6 @@
               "1"
             ]
           }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "40",
-              "40"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -776,15 +776,6 @@
         "vargface_head_head_pooling_sep1_data_conv2d_pointwise"
       ],
       "attr": {
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -812,6 +803,15 @@
         },
         "bias": {
           "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -822,15 +822,6 @@
         "vargface_head_head_pooling_shortcut_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
         "momentum": {
           "f": 0.8999999761581421
         },
@@ -858,6 +849,15 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
         }
       }
     },
@@ -983,21 +983,6 @@
         "vargface_head_head_pooling_sep2_data_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -1019,6 +1004,21 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -1060,6 +1060,32 @@
         "vargface_head_head_pooling_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "40",
+              "40"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -1108,32 +1134,6 @@
               "1"
             ]
           }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "40",
-              "40"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -1253,28 +1253,6 @@
         "vargface_head_head_pooling_out_data_act"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "28"
-                  },
-                  {
-                    "size": "28"
-                  },
-                  {
-                    "size": "80"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "pads": {
           "list": {
             "i": [
@@ -1327,6 +1305,28 @@
         },
         "use_bias": {
           "b": false
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "28"
+                  },
+                  {
+                    "size": "28"
+                  },
+                  {
+                    "size": "80"
+                  }
+                ]
+              }
+            ]
+          }
         }
       }
     },
@@ -1337,6 +1337,26 @@
         "vargface_head_head_pooling_out_data_act"
       ],
       "attr": {
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "40",
+              "80"
+            ]
+          }
+        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -1391,26 +1411,6 @@
         },
         "group": {
           "i": "5"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "40",
-              "80"
-            ]
-          }
         }
       }
     },
@@ -1505,21 +1505,6 @@
         "vargface_stage_2_unit_1_sep1_data_branch_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -1541,6 +1526,21 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -1597,15 +1597,6 @@
         "vargface_stage_2_unit_1_shortcut_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
         "momentum": {
           "f": 0.8999999761581421
         },
@@ -1633,6 +1624,15 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
         }
       }
     },
@@ -1736,22 +1736,6 @@
         "vargface_stage_2_unit_1_sep1_data_branch_conv2d_depthwise_act"
       ],
       "attr": {
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -1810,6 +1794,22 @@
               "80"
             ]
           }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -1820,16 +1820,6 @@
         "vargface_stage_2_unit_1_sep2_data_branch_conv2d_depthwise_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "80",
-              "80"
-            ]
-          }
-        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -1892,6 +1882,16 @@
               "1",
               "1",
               "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "80",
+              "80"
             ]
           }
         }
@@ -1904,6 +1904,28 @@
         "vargface_stage_2_unit_1_shortcut_conv2d_depthwise_act"
       ],
       "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "28"
+                  },
+                  {
+                    "size": "28"
+                  },
+                  {
+                    "size": "80"
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "pads": {
           "list": {
             "i": [
@@ -1956,28 +1978,6 @@
         },
         "use_bias": {
           "b": false
-        },
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "28"
-                  },
-                  {
-                    "size": "28"
-                  },
-                  {
-                    "size": "80"
-                  }
-                ]
-              }
-            ]
-          }
         }
       }
     },
@@ -1988,9 +1988,6 @@
         "vargface_stage_2_unit_1_sep1_data_branch_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
         "scale": {
           "b": true
         },
@@ -2024,6 +2021,9 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
         }
       }
     },
@@ -2034,6 +2034,12 @@
         "vargface_stage_2_unit_1_sep2_data_branch_conv2d_pointwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -2064,12 +2070,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -2273,6 +2273,15 @@
         "vargface_stage_2_unit_1_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -2300,15 +2309,6 @@
         },
         "bias": {
           "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -2434,6 +2434,9 @@
         "vargface_stage_2_unit_1_sep2_data_conv2d_pointwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -2467,9 +2470,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -2543,42 +2543,6 @@
         "vargface_stage_2_unit_1_out_data_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "80",
-              "160"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -2617,6 +2581,42 @@
         },
         "group": {
           "i": "10"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "80",
+              "160"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -2627,6 +2627,21 @@
         "vargface_stage_2_unit_2_sep1_data_conv2d_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -2648,21 +2663,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -2704,32 +2704,6 @@
         "vargface_stage_2_unit_2_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "160",
-              "80"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -2778,6 +2752,32 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "160",
+              "80"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -2865,28 +2865,6 @@
         "vargface_stage_2_unit_2_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "28"
-                  },
-                  {
-                    "size": "28"
-                  },
-                  {
-                    "size": "160"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "pads": {
           "list": {
             "i": [
@@ -2939,6 +2917,28 @@
         },
         "use_bias": {
           "b": false
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "28"
+                  },
+                  {
+                    "size": "28"
+                  },
+                  {
+                    "size": "160"
+                  }
+                ]
+              }
+            ]
+          }
         }
       }
     },
@@ -2949,6 +2949,12 @@
         "vargface_stage_2_unit_2_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -2979,12 +2985,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -3026,43 +3026,6 @@
         "vargface_stage_2_unit_2_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "pads": {
-          "list": {
-            "i": [
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0"
-            ]
-          }
-        },
-        "group": {
-          "i": "1"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "160",
-              "80"
-            ]
-          }
-        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -3100,6 +3063,43 @@
               }
             ]
           }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "group": {
+          "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "160",
+              "80"
+            ]
+          }
         }
       }
     },
@@ -3110,6 +3110,15 @@
         "vargface_stage_2_unit_2_sep2_data_conv2d_pointwise"
       ],
       "attr": {
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -3137,15 +3146,6 @@
         },
         "bias": {
           "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -3380,6 +3380,16 @@
         "vargface_stage_2_unit_3_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "160",
+              "80"
+            ]
+          }
+        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -3444,16 +3454,6 @@
               "1"
             ]
           }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "160",
-              "80"
-            ]
-          }
         }
       }
     },
@@ -3464,6 +3464,9 @@
         "vargface_stage_2_unit_3_sep1_data_conv2d_pointwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
         "scale": {
           "b": true
         },
@@ -3497,9 +3500,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
         }
       }
     },
@@ -3541,6 +3541,26 @@
         "vargface_stage_2_unit_3_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "80",
+              "160"
+            ]
+          }
+        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -3595,26 +3615,6 @@
         },
         "group": {
           "i": "10"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "80",
-              "160"
-            ]
-          }
         }
       }
     },
@@ -3625,6 +3625,9 @@
         "vargface_stage_2_unit_3_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -3658,9 +3661,6 @@
         },
         "momentum": {
           "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -3702,42 +3702,6 @@
         "vargface_stage_2_unit_3_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "160",
-              "80"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -3776,6 +3740,42 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "160",
+              "80"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -3786,18 +3786,6 @@
         "vargface_stage_2_unit_3_sep2_data_conv2d_pointwise"
       ],
       "attr": {
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -3822,6 +3810,18 @@
         },
         "bias": {
           "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -3979,28 +3979,6 @@
         "vargface_stage_2_unit_3_out_data_act"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "160"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "pads": {
           "list": {
             "i": [
@@ -4053,6 +4031,28 @@
         },
         "use_bias": {
           "b": false
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "160"
+                  }
+                ]
+              }
+            ]
+          }
         }
       }
     },
@@ -4063,28 +4063,6 @@
         "vargface_stage_2_unit_3_out_data_act"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "160"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "pads": {
           "list": {
             "i": [
@@ -4137,6 +4115,28 @@
         },
         "use_bias": {
           "b": false
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "160"
+                  }
+                ]
+              }
+            ]
+          }
         }
       }
     },
@@ -4147,18 +4147,6 @@
         "vargface_stage_3_unit_1_sep1_data_branch_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -4183,6 +4171,18 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -4630,6 +4630,9 @@
         "vargface_stage_3_unit_1_sep1_data_branch_conv2d_pointwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -4663,9 +4666,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -4676,15 +4676,6 @@
         "vargface_stage_3_unit_1_sep2_data_branch_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
         "momentum": {
           "f": 0.8999999761581421
         },
@@ -4712,6 +4703,15 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
         }
       }
     },
@@ -4915,6 +4915,18 @@
         "vargface_stage_3_unit_1_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -4939,18 +4951,6 @@
         },
         "bias": {
           "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -4992,16 +4992,6 @@
         "vargface_stage_3_unit_1_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "320",
-              "160"
-            ]
-          }
-        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -5066,6 +5056,16 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "320",
+              "160"
+            ]
+          }
         }
       }
     },
@@ -5076,6 +5076,21 @@
         "vargface_stage_3_unit_1_sep2_data_conv2d_pointwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -5097,21 +5112,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -5185,6 +5185,32 @@
         "vargface_stage_3_unit_1_out_data_act"
       ],
       "attr": {
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -5233,32 +5259,6 @@
               "1"
             ]
           }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -5269,9 +5269,6 @@
         "vargface_stage_3_unit_2_sep1_data_conv2d_depthwise"
       ],
       "attr": {
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -5305,6 +5302,9 @@
         },
         "axis": {
           "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -5346,42 +5346,6 @@
         "vargface_stage_3_unit_2_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "320",
-              "160"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -5420,6 +5384,42 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "320",
+              "160"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -5430,21 +5430,6 @@
         "vargface_stage_3_unit_2_sep1_data_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -5466,6 +5451,21 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -5591,6 +5591,9 @@
         "vargface_stage_3_unit_2_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -5624,9 +5627,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -5668,22 +5668,6 @@
         "vargface_stage_3_unit_2_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -5742,6 +5726,22 @@
               "160"
             ]
           }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -5752,6 +5752,15 @@
         "vargface_stage_3_unit_2_sep2_data_conv2d_pointwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
         "momentum": {
           "f": 0.8999999761581421
         },
@@ -5779,15 +5788,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
         }
       }
     },
@@ -5945,12 +5945,6 @@
         "vargface_stage_3_unit_3_sep1_data_conv2d_depthwise"
       ],
       "attr": {
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -5981,6 +5975,12 @@
         },
         "axis": {
           "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -6022,16 +6022,6 @@
         "vargface_stage_3_unit_3_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
         "kernel_shape": {
           "list": {
             "i": [
@@ -6096,6 +6086,16 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
         }
       }
     },
@@ -6183,6 +6183,22 @@
         "vargface_stage_3_unit_3_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6241,22 +6257,6 @@
               "320"
             ]
           }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -6344,32 +6344,6 @@
         "vargface_stage_3_unit_3_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "320",
-              "160"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6418,6 +6392,32 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "320",
+              "160"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -6428,6 +6428,21 @@
         "vargface_stage_3_unit_3_sep2_data_conv2d_pointwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6449,21 +6464,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -6537,6 +6537,32 @@
         "vargface_stage_3_unit_3_out_data_act"
       ],
       "attr": {
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6585,32 +6611,6 @@
               "1"
             ]
           }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -6621,6 +6621,21 @@
         "vargface_stage_3_unit_4_sep1_data_conv2d_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6642,21 +6657,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -6782,9 +6782,6 @@
         "vargface_stage_3_unit_4_sep1_data_conv2d_pointwise"
       ],
       "attr": {
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6818,6 +6815,9 @@
         },
         "momentum": {
           "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -6859,42 +6859,6 @@
         "vargface_stage_3_unit_4_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -6933,6 +6897,42 @@
         },
         "group": {
           "i": "20"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -7020,6 +7020,28 @@
         "vargface_stage_3_unit_4_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "160"
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "pads": {
           "list": {
             "i": [
@@ -7072,28 +7094,6 @@
         },
         "use_bias": {
           "b": false
-        },
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "160"
-                  }
-                ]
-              }
-            ]
-          }
         }
       }
     },
@@ -7104,6 +7104,12 @@
         "vargface_stage_3_unit_4_sep2_data_conv2d_pointwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -7134,12 +7140,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -7213,23 +7213,6 @@
         "vargface_stage_3_unit_4_out_data_act"
       ],
       "attr": {
-        "pads": {
-          "list": {
-            "i": [
-              "0",
-              "1",
-              "1",
-              "0",
-              "0",
-              "1",
-              "1",
-              "0"
-            ]
-          }
-        },
-        "group": {
-          "i": "20"
-        },
         "dilations": {
           "list": {
             "i": [
@@ -7287,6 +7270,23 @@
               }
             ]
           }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "group": {
+          "i": "20"
         }
       }
     },
@@ -7374,42 +7374,6 @@
         "vargface_stage_3_unit_5_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "320",
-              "160"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -7448,6 +7412,42 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "320",
+              "160"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -7458,6 +7458,18 @@
         "vargface_stage_3_unit_5_sep1_data_conv2d_pointwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -7482,18 +7494,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -7535,28 +7535,6 @@
         "vargface_stage_3_unit_5_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "320"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "pads": {
           "list": {
             "i": [
@@ -7609,30 +7587,6 @@
         },
         "use_bias": {
           "b": false
-        }
-      }
-    },
-    {
-      "name": "vargface_stage_3_unit_5_sep2_data_conv2d_depthwise_bn",
-      "op": "BatchNorm",
-      "input": [
-        "vargface_stage_3_unit_5_sep2_data_conv2d_depthwise"
-      ],
-      "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         },
         "_output_shapes": {
           "list": {
@@ -7655,6 +7609,52 @@
               }
             ]
           }
+        }
+      }
+    },
+    {
+      "name": "vargface_stage_3_unit_5_sep2_data_conv2d_depthwise_bn",
+      "op": "BatchNorm",
+      "input": [
+        "vargface_stage_3_unit_5_sep2_data_conv2d_depthwise"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "320"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -7780,21 +7780,6 @@
         "vargface_stage_3_unit_5_sep2_data_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -7816,6 +7801,21 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -7889,22 +7889,6 @@
         "vargface_stage_3_unit_5_out_data_act"
       ],
       "attr": {
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -7963,6 +7947,22 @@
               "320"
             ]
           }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -8050,33 +8050,6 @@
         "vargface_stage_3_unit_6_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "pads": {
-          "list": {
-            "i": [
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0"
-            ]
-          }
-        },
-        "group": {
-          "i": "1"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
         "kernel_shape": {
           "list": {
             "i": [
@@ -8124,6 +8097,33 @@
               }
             ]
           }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "group": {
+          "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
         }
       }
     },
@@ -8134,6 +8134,18 @@
         "vargface_stage_3_unit_6_sep1_data_conv2d_pointwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -8158,18 +8170,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -8295,6 +8295,21 @@
         "vargface_stage_3_unit_6_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -8316,21 +8331,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -8456,9 +8456,6 @@
         "vargface_stage_3_unit_6_sep2_data_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
         "scale": {
           "b": true
         },
@@ -8492,6 +8489,9 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
         }
       }
     },
@@ -8565,32 +8565,6 @@
         "vargface_stage_3_unit_6_out_data_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -8639,6 +8613,32 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -8810,6 +8810,9 @@
         "vargface_stage_3_unit_7_sep1_data_conv2d_pointwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -8843,9 +8846,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -8887,32 +8887,6 @@
         "vargface_stage_3_unit_7_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -8961,6 +8935,32 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -9048,6 +9048,28 @@
         "vargface_stage_3_unit_7_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "14"
+                  },
+                  {
+                    "size": "160"
+                  }
+                ]
+              }
+            ]
+          }
+        },
         "pads": {
           "list": {
             "i": [
@@ -9100,28 +9122,6 @@
         },
         "use_bias": {
           "b": false
-        },
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "14"
-                  },
-                  {
-                    "size": "160"
-                  }
-                ]
-              }
-            ]
-          }
         }
       }
     },
@@ -9325,32 +9325,6 @@
         "vargface_stage_3_unit_7_out_data_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "2",
-              "2",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -9399,6 +9373,32 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "2",
+              "2",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -9409,6 +9409,43 @@
         "vargface_stage_3_unit_7_out_data_act"
       ],
       "attr": {
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "1",
+              "1",
+              "0",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          }
+        },
+        "group": {
+          "i": "20"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "160",
+              "320"
+            ]
+          }
+        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -9444,43 +9481,6 @@
                   }
                 ]
               }
-            ]
-          }
-        },
-        "pads": {
-          "list": {
-            "i": [
-              "0",
-              "1",
-              "1",
-              "0",
-              "0",
-              "1",
-              "1",
-              "0"
-            ]
-          }
-        },
-        "group": {
-          "i": "20"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "160",
-              "320"
             ]
           }
         }
@@ -9493,28 +9493,6 @@
         "vargface_stage_4_unit_1_sep1_data_branch_conv2d_depthwise"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "7"
-                  },
-                  {
-                    "size": "7"
-                  },
-                  {
-                    "size": "320"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "bias": {
           "b": true
         },
@@ -9529,6 +9507,28 @@
         },
         "epsilon": {
           "f": 1.9999999494757503e-05
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "7"
+                  },
+                  {
+                    "size": "7"
+                  },
+                  {
+                    "size": "320"
+                  }
+                ]
+              }
+            ]
+          }
         }
       }
     },
@@ -9585,6 +9585,9 @@
         "vargface_stage_4_unit_1_shortcut_conv2d_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
         "scale": {
           "b": true
         },
@@ -9618,9 +9621,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
         }
       }
     },
@@ -9976,12 +9976,6 @@
         "vargface_stage_4_unit_1_sep1_data_branch_conv2d_pointwise"
       ],
       "attr": {
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
         "momentum": {
           "f": 0.8999999761581421
         },
@@ -10012,6 +10006,12 @@
         },
         "bias": {
           "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
         }
       }
     },
@@ -10022,18 +10022,6 @@
         "vargface_stage_4_unit_1_sep2_data_branch_conv2d_pointwise"
       ],
       "attr": {
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -10058,6 +10046,18 @@
         },
         "bias": {
           "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -10261,9 +10261,6 @@
         "vargface_stage_4_unit_1_sep2_data_conv2d_depthwise"
       ],
       "attr": {
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -10297,6 +10294,9 @@
         },
         "momentum": {
           "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -10338,28 +10338,6 @@
         "vargface_stage_4_unit_1_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "_output_shapes": {
-          "list": {
-            "shape": [
-              {
-                "dim": [
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "7"
-                  },
-                  {
-                    "size": "7"
-                  },
-                  {
-                    "size": "320"
-                  }
-                ]
-              }
-            ]
-          }
-        },
         "pads": {
           "list": {
             "i": [
@@ -10412,30 +10390,6 @@
         },
         "use_bias": {
           "b": false
-        }
-      }
-    },
-    {
-      "name": "vargface_stage_4_unit_1_sep2_data_conv2d_pointwise_bn",
-      "op": "BatchNorm",
-      "input": [
-        "vargface_stage_4_unit_1_sep2_data_conv2d_pointwise"
-      ],
-      "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         },
         "_output_shapes": {
           "list": {
@@ -10458,6 +10412,52 @@
               }
             ]
           }
+        }
+      }
+    },
+    {
+      "name": "vargface_stage_4_unit_1_sep2_data_conv2d_pointwise_bn",
+      "op": "BatchNorm",
+      "input": [
+        "vargface_stage_4_unit_1_sep2_data_conv2d_pointwise"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "7"
+                  },
+                  {
+                    "size": "7"
+                  },
+                  {
+                    "size": "320"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -10531,32 +10531,6 @@
         "vargface_stage_4_unit_1_out_data_act"
       ],
       "attr": {
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "320",
-              "640"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -10605,6 +10579,32 @@
               "1"
             ]
           }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "320",
+              "640"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -10615,18 +10615,6 @@
         "vargface_stage_4_unit_2_sep1_data_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -10651,6 +10639,18 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -10776,6 +10776,12 @@
         "vargface_stage_4_unit_2_sep1_data_conv2d_pointwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -10806,12 +10812,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -10853,6 +10853,22 @@
         "vargface_stage_4_unit_2_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -10911,22 +10927,6 @@
               "640"
             ]
           }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -10937,15 +10937,6 @@
         "vargface_stage_4_unit_2_sep2_data_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
         "momentum": {
           "f": 0.8999999761581421
         },
@@ -10973,6 +10964,15 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
         }
       }
     },
@@ -11098,21 +11098,6 @@
         "vargface_stage_4_unit_2_sep2_data_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
-        "epsilon": {
-          "f": 1.9999999494757503e-05
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -11134,6 +11119,21 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
+        "epsilon": {
+          "f": 1.9999999494757503e-05
         }
       }
     },
@@ -11207,6 +11207,22 @@
         "vargface_stage_4_unit_2_out_data_act"
       ],
       "attr": {
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
+        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -11265,22 +11281,6 @@
               "640"
             ]
           }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
         }
       }
     },
@@ -11291,18 +11291,6 @@
         "vargface_stage_4_unit_3_sep1_data_conv2d_depthwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -11327,6 +11315,18 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -11452,9 +11452,6 @@
         "vargface_stage_4_unit_3_sep1_data_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
         "scale": {
           "b": true
         },
@@ -11488,6 +11485,9 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
         }
       }
     },
@@ -11613,6 +11613,9 @@
         "vargface_stage_4_unit_3_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
         "scale": {
           "b": true
         },
@@ -11646,9 +11649,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
         }
       }
     },
@@ -11690,33 +11690,6 @@
         "vargface_stage_4_unit_3_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "pads": {
-          "list": {
-            "i": [
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0",
-              "0"
-            ]
-          }
-        },
-        "group": {
-          "i": "1"
-        },
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
         "kernel_shape": {
           "list": {
             "i": [
@@ -11762,6 +11735,33 @@
                   }
                 ]
               }
+            ]
+          }
+        },
+        "pads": {
+          "list": {
+            "i": [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          }
+        },
+        "group": {
+          "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
             ]
           }
         }
@@ -11883,42 +11883,6 @@
         "vargface_stage_4_unit_3_out_data_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "320",
-              "640"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -11957,6 +11921,42 @@
         },
         "group": {
           "i": "40"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "320",
+              "640"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -11967,9 +11967,6 @@
         "vargface_stage_4_unit_4_sep1_data_conv2d_depthwise"
       ],
       "attr": {
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -12003,6 +12000,9 @@
         },
         "axis": {
           "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -12044,26 +12044,6 @@
         "vargface_stage_4_unit_4_sep1_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "640",
-              "320"
-            ]
-          }
-        },
         "data_format": {
           "s": "TkNIVw=="
         },
@@ -12118,6 +12098,26 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "640",
+              "320"
+            ]
+          }
         }
       }
     },
@@ -12128,18 +12128,6 @@
         "vargface_stage_4_unit_4_sep1_data_conv2d_pointwise"
       ],
       "attr": {
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -12164,6 +12152,18 @@
               }
             ]
           }
+        },
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     },
@@ -12205,42 +12205,6 @@
         "vargface_stage_4_unit_4_sep1_data_conv2d_pointwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "3",
-              "3",
-              "320",
-              "640"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -12279,6 +12243,42 @@
         },
         "group": {
           "i": "40"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "3",
+              "3",
+              "320",
+              "640"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -12289,6 +12289,9 @@
         "vargface_stage_4_unit_4_sep2_data_conv2d_depthwise"
       ],
       "attr": {
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -12322,9 +12325,6 @@
         },
         "axis": {
           "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -12366,42 +12366,6 @@
         "vargface_stage_4_unit_4_sep2_data_conv2d_depthwise_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "640",
-              "320"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -12440,6 +12404,42 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "640",
+              "320"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -12559,16 +12559,6 @@
         "vargface_stage_4_unit_4_out_data_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
         "kernel_shape": {
           "list": {
             "i": [
@@ -12633,6 +12623,16 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
         }
       }
     },
@@ -12720,42 +12720,6 @@
         "embed_convx_act"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "kernel_shape": {
-          "list": {
-            "i": [
-              "7",
-              "7",
-              "1024",
-              "1024"
-            ]
-          }
-        },
-        "data_format": {
-          "s": "TkNIVw=="
-        },
-        "strides": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
-        "use_bias": {
-          "b": false
-        },
         "_output_shapes": {
           "list": {
             "shape": [
@@ -12794,6 +12758,42 @@
         },
         "group": {
           "i": "128"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "kernel_shape": {
+          "list": {
+            "i": [
+              "7",
+              "7",
+              "1024",
+              "1024"
+            ]
+          }
+        },
+        "data_format": {
+          "s": "TkNIVw=="
+        },
+        "strides": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
+        },
+        "use_bias": {
+          "b": false
         }
       }
     },
@@ -12804,6 +12804,18 @@
         "embed_convx_depthwise"
       ],
       "attr": {
+        "bias": {
+          "b": true
+        },
+        "scale": {
+          "b": true
+        },
+        "axis": {
+          "i": "3"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
+        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -12828,18 +12840,6 @@
               }
             ]
           }
-        },
-        "bias": {
-          "b": true
-        },
-        "scale": {
-          "b": true
-        },
-        "axis": {
-          "i": "3"
-        },
-        "momentum": {
-          "f": 0.8999999761581421
         }
       }
     },
@@ -12850,16 +12850,6 @@
         "embed_convx_depthwise_bn"
       ],
       "attr": {
-        "dilations": {
-          "list": {
-            "i": [
-              "1",
-              "1",
-              "1",
-              "1"
-            ]
-          }
-        },
         "kernel_shape": {
           "list": {
             "i": [
@@ -12924,6 +12914,16 @@
         },
         "group": {
           "i": "1"
+        },
+        "dilations": {
+          "list": {
+            "i": [
+              "1",
+              "1",
+              "1",
+              "1"
+            ]
+          }
         }
       }
     },
@@ -13042,9 +13042,6 @@
         "pre_fc1"
       ],
       "attr": {
-        "momentum": {
-          "f": 0.8999999761581421
-        },
         "epsilon": {
           "f": 1.9999999494757503e-05
         },
@@ -13072,6 +13069,9 @@
         },
         "axis": {
           "i": "1"
+        },
+        "momentum": {
+          "f": 0.8999999761581421
         }
       }
     }

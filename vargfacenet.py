@@ -1,4 +1,4 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 __weights_dict = dict()
 
@@ -309,7 +309,7 @@ def KitModel(weight_file = None):
     embed_convx_pointwise = convolution(embed_convx_depthwise_bn, group=1, strides=[1, 1], padding='VALID', name='embed_convx_pointwise')
     embed_convx_pointwise_bn = batch_normalization(embed_convx_pointwise, variance_epsilon=1.9999999494757503e-05, name='embed_convx_pointwise_bn')
     embed_convx_pointwise_act = prelu(embed_convx_pointwise_bn, name='embed_convx_pointwise_act')
-    pre_fc1_flatten = tf.contrib.layers.flatten(embed_convx_pointwise_act)
+    pre_fc1_flatten = tf.layers.flatten(embed_convx_pointwise_act)
     pre_fc1         = tf.layers.dense(pre_fc1_flatten, 512, kernel_initializer = tf.constant_initializer(__weights_dict['pre_fc1']['weights']), bias_initializer = tf.constant_initializer(__weights_dict['pre_fc1']['bias']), use_bias = True)
     fc1             = batch_normalization(pre_fc1, variance_epsilon=1.9999999494757503e-05, name='fc1')
     return data, fc1
