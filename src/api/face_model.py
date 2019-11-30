@@ -15,11 +15,18 @@ from sklearn.decomposition import PCA
 from time import sleep
 from easydict import EasyDict as edict
 #import facenet
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'align'))
-import detect_face
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'align'))
+# import detect_face
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'common'))
 import face_image
 import face_preprocess
+sys.path.append(os.path.join(os.path.dirname(__file__), '../../RetinaFace/'))
+from retinaface import RetinaFace
+#change gpuid to value >= 0 to run by gpu
+gpuid = -1
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, '../../RetinaFace/model/R50')
+detector = RetinaFace(filename, 0, gpuid, 'net3')
 
 def ch_dev(arg_params, aux_params, ctx):
   new_args = dict()
@@ -37,14 +44,15 @@ def do_flip(data):
 class FaceModel:
   def __init__(self, args):
     model = edict()
-    with tf.Graph().as_default():
-      config = tf.ConfigProto()
-      config.gpu_options.per_process_gpu_memory_fraction = 0.2
-      sess = tf.Session(config=config)
-      #sess = tf.Session()
-      with sess.as_default():
-        self.pnet, self.rnet, self.onet = detect_face.create_mtcnn(sess, None)
-
+    #with tf.Graph().as_default():
+    #  config = tf.ConfigProto()
+    #  config.gpu_options.per_process_gpu_memory_fraction = 0.2
+    #  sess = tf.Session(config=config)
+    #  #sess = tf.Session()
+    #  with sess.as_default():
+    #    self.pnet, self.rnet, self.onet = detect_face.create_mtcnn(sess, None)
+    self.detector_threshold = 0.8
+    self.scales = [1024, 1980]
     self.threshold = args.threshold
     self.det_minsize = 50
     self.det_threshold = [0.4,0.6,0.6]
@@ -56,7 +64,7 @@ class FaceModel:
     assert len(_vec)==2
     prefix = _vec[0]
     epoch = int(_vec[1])
-    print('loading',prefix, epoch)
+    #print('loading',prefix, epoch)
     self.model = edict()
     #self.model.ctx = mx.gpu(args.gpu)
     self.model.ctx = mx.cpu()
@@ -65,52 +73,67 @@ class FaceModel:
     all_layers = self.model.sym.get_internals()
     self.model.sym = all_layers['fc1_output']
 
-  def get_aligned_face(self, img, force = False):
-    #print('before det', img.shape)
-    bounding_boxes, points = detect_face.detect_face(img, self.det_minsize, self.pnet, self.rnet, self.onet, self.det_threshold, self.det_factor)
-    #if bounding_boxes.shape[0]==0:
-    #  fimg = np.copy(img)
-    #  do_flip(fimg)
-    #  bounding_boxes, points = detect_face.detect_face(fimg, self.det_minsize, self.pnet, self.rnet, self.onet, self.det_threshold, self.det_factor)
-    if bounding_boxes.shape[0]==0 and force:
-      print('force det', img.shape)
-      bounding_boxes, points = detect_face.detect_face(img, self.det_minsize, self.pnet, self.rnet, self.onet, [0.3, 0.3, 0.1], self.det_factor)
-      #bounding_boxes, points = detect_face.detect_face_force(img, None, self.pnet, self.rnet, self.onet)
-    #print('after det')
-    if bounding_boxes.shape[0]==0:
-      return None
-    bindex = 0
-    nrof_faces = bounding_boxes.shape[0]
-    det = bounding_boxes[:,0:4]
-    img_size = np.asarray(img.shape)[0:2]
-    if nrof_faces>1:
-      bounding_box_size = (det[:,2]-det[:,0])*(det[:,3]-det[:,1])
-      img_center = img_size / 2
-      offsets = np.vstack([ (det[:,0]+det[:,2])/2-img_center[1], (det[:,1]+det[:,3])/2-img_center[0] ])
-      offset_dist_squared = np.sum(np.power(offsets,2.0),0)
-      bindex = np.argmax(bounding_box_size-offset_dist_squared*2.0) # some extra weight on the centering
-    det = bounding_boxes[:,0:4]
-    det = det[bindex,:]
-    points = points[:, bindex]
-    landmark = points.reshape((2,5)).T
-    #points need to be transpose, points = points.reshape( (5,2) ).transpose()
-    det = np.squeeze(det)
-    bb = det
-    points = list(points.flatten())
-    assert(len(points)==10)
-    str_image_size = "%d,%d"%(self.image_size[0], self.image_size[1])
-    warped = face_preprocess.preprocess(img, bbox=bb, landmark = landmark, image_size=str_image_size)
-    warped = np.transpose(warped, (2,0,1))
-    print(warped.shape)
-    return warped
+  #def get_aligned_face(self, img, force = False):
+  #  #print('before det', img.shape)
+  #  bounding_boxes, points = detect_face.detect_face(img, self.det_minsize, self.pnet, self.rnet, self.onet, self.det_threshold, self.det_factor)
+  #  #if bounding_boxes.shape[0]==0:
+  #  #  fimg = np.copy(img)
+  #  #  do_flip(fimg)
+  #  #  bounding_boxes, points = detect_face.detect_face(fimg, self.det_minsize, self.pnet, self.rnet, self.onet, self.det_threshold, self.det_factor)
+  #  if bounding_boxes.shape[0]==0 and force:
+  #    print('force det', img.shape)
+  #    bounding_boxes, points = detect_face.detect_face(img, self.det_minsize, self.pnet, self.rnet, self.onet, [0.3, 0.3, 0.1], self.det_factor)
+  #    #bounding_boxes, points = detect_face.detect_face_force(img, None, self.pnet, self.rnet, self.onet)
+  #  #print('after det')
+  #  if bounding_boxes.shape[0]==0:
+  #    return None
+  #  bindex = 0
+  #  nrof_faces = bounding_boxes.shape[0]
+  #  det = bounding_boxes[:,0:4]
+  #  img_size = np.asarray(img.shape)[0:2]
+  #  if nrof_faces>1:
+  #    bounding_box_size = (det[:,2]-det[:,0])*(det[:,3]-det[:,1])
+  #    img_center = img_size / 2
+  #    offsets = np.vstack([ (det[:,0]+det[:,2])/2-img_center[1], (det[:,1]+det[:,3])/2-img_center[0] ])
+  #    offset_dist_squared = np.sum(np.power(offsets,2.0),0)
+  #    bindex = np.argmax(bounding_box_size-offset_dist_squared*2.0) # some extra weight on the centering
+  #  det = bounding_boxes[:,0:4]
+  #  det = det[bindex,:]
+  #  points = points[:, bindex]
+  #  landmark = points.reshape((2,5)).T
+  #  #points need to be transpose, points = points.reshape( (5,2) ).transpose()
+  #  det = np.squeeze(det)
+  #  bb = det
+  #  points = list(points.flatten())
+  #  assert(len(points)==10)
+  #  str_image_size = "%d,%d"%(self.image_size[0], self.image_size[1])
+  #  warped = face_preprocess.preprocess(img, bbox=bb, landmark = landmark, image_size=str_image_size)
+  #  warped = np.transpose(warped, (2,0,1))
+  #  print(warped.shape)
+  #  return warped
 
   def get_all_faces(self, img):
+    im_shape = img.shape 
+    target_size = self.scales[0]
+    max_size = self.scales[1]
+    im_size_min = np.min(im_shape[0:2])
+    im_size_max = np.max(im_shape[0:2])
+    im_scale = float(target_size) / float(im_size_min)
+    if np.round(im_scale * im_size_max) > max_size:
+        im_scale = float(max_size) / float(im_size_max)
+    scales = [im_scale]
+    flip = False
     str_image_size = "%d,%d"%(self.image_size[0], self.image_size[1])
-    bounding_boxes, points = detect_face.detect_face(img, self.det_minsize, self.pnet, self.rnet, self.onet, self.det_threshold, self.det_factor)
+    #bounding_boxes, points = detect_face.detect_face(img, self.det_minsize, self.pnet, self.rnet, self.onet, self.det_threshold, self.det_factor)
+    bounding_boxes, points = detector.detect(img, self.detector_threshold, do_flip = flip)
+    #print(bounding_boxes.shape)
+    #print(points.shape)
     ret = []
     for i in range(bounding_boxes.shape[0]):
       bbox = bounding_boxes[i,0:4]
-      landmark = points[:, i].reshape((2,5)).T
+      #landmark = points[:, i].reshape((2,5)).T
+      landmark = points[i,:,:]
+      #print(landmark.shape)
       aligned = face_preprocess.preprocess(img, bbox=bbox, landmark = landmark, image_size=str_image_size)
       aligned = np.transpose(aligned, (2,0,1))
       ret.append(aligned)
