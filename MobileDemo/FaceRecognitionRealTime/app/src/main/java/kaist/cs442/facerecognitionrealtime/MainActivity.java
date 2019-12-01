@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     final private String modelFileName = "vargfacenet.tflite";
@@ -40,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (checkPermission()) setup();
         else requestPermission();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
     private boolean checkPermission() {
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setup() {
-        FaceRecognizer.setup(this.getAssets(), modelFileName);
+        FaceRecognizer.setup(getApplicationContext(), this.getAssets(), modelFileName);
 
         Button btnAddFace = findViewById(R.id.btnAddFace);
         btnAddFace.setOnClickListener((view) -> {
@@ -80,6 +86,12 @@ public class MainActivity extends AppCompatActivity {
         btnDetectFaceRealTime.setOnClickListener((view) -> {
             Intent intent = new Intent(this, FaceTrackerActivity.class);
             startActivity(intent);
+        });
+
+        Button btnClearFaceData = findViewById(R.id.btnClearFace);
+        btnClearFaceData.setOnClickListener((view) -> {
+            FaceRecognizer.clearMap();
+            Toast.makeText(this, "Face data cleared.", Toast.LENGTH_SHORT).show();
         });
     }
 }

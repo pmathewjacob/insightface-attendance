@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:gravity="center"
-        android:text="Automatic\n attendance check"
+        android:text="Face Detection\n and Recognition"
         android:textColor="@color/darkergreen"
         android:textSize="40sp"
         android:layout_centerHorizontal="true"/>
@@ -34,7 +34,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="330dp"
-        android:paddingTop="40dp"
         android:background="@drawable/background">
 
         <Button
@@ -72,6 +71,18 @@
             android:text="Detect realtime"
             android:textAllCaps="false"
             android:textColor="@color/darkergreen"
+            android:textSize="28dp" />
+
+        <Button
+            android:id="@+id/btnClearFace"
+            android:layout_width="323dp"
+            android:layout_height="63dp"
+            android:layout_gravity="center"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/button"
+            android:text="Clear face data"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
             android:textSize="28dp" />
     </LinearLayout>
 </RelativeLayout>

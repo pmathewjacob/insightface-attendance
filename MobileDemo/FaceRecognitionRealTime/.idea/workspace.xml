@@ -7,74 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b19eff48-7079-413a-9cc7-bd421fa35e44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/androidTest/java/kaist/cs470/myapplication/ExampleInstrumentedTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/java/kaist/cs470/myapplication/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/app/src/test/java/kaist/cs470/myapplication/ExampleUnitTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/gradle.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../CS470Demo/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/AddFaceActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/DetectFaceActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/DetectFaceRealTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceRecognizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/camera/CameraSourcePreview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/camera/GraphicOverlay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_face.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detect_face.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detect_face_real_time.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_face_tracker.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FaceRecognitionRealTime.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FaceRecognitionRealTime.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -98,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceRecognizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+            <state relative-caret-position="374">
+              <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,8 +46,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-300">
-              <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
+            <state relative-caret-position="420">
+              <caret line="93" column="82" selection-start-line="93" selection-start-column="82" selection-end-line="93" selection-end-column="82" />
+              <folding>
+                <element signature="e#1268#1269#0" expanded="true" />
+                <element signature="e#1298#1299#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="79" column="43" lean-forward="true" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -129,27 +76,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceTrackerActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="288" selection-start-line="288" selection-end-line="288" />
+            <state relative-caret-position="-3135">
+              <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#9159#9160#0" expanded="true" />
                 <element signature="e#9212#9213#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceGraphic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,19 +121,19 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_face.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/AddFaceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/DetectFaceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detect_face.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceRecognizer.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/DetectFaceRealTime.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/camera/GraphicOverlay.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/camera/CameraSourcePreview.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_face_tracker.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceGraphic.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceTrackerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceRecognizer.java" />
       </list>
     </option>
   </component>
@@ -480,14 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="65" column="46" selection-start-line="65" selection-start-column="46" selection-end-line="65" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detect_face_real_time.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
@@ -566,6 +492,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceGraphic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceTrackerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3135">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="e#9159#9160#0" expanded="true" />
+            <element signature="e#9212#9213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="79" column="43" lean-forward="true" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="93" column="82" selection-start-line="93" selection-start-column="82" selection-end-line="93" selection-end-column="82" />
+          <folding>
+            <element signature="e#1268#1269#0" expanded="true" />
+            <element signature="e#1298#1299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_face_tracker.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -576,39 +542,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceRecognizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        <state relative-caret-position="374">
+          <caret line="40" column="45" lean-forward="true" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceGraphic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/kaist/cs442/facerecognitionrealtime/FaceTrackerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="288" selection-start-line="288" selection-end-line="288" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9159#9160#0" expanded="true" />
-            <element signature="e#9212#9213#0" expanded="true" />
           </folding>
         </state>
       </provider>

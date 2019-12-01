@@ -25,9 +25,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
 import android.util.SparseArray;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -38,18 +35,9 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
-import com.google.android.material.snackbar.Snackbar;
-
-import org.tensorflow.lite.Interpreter;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.MappedByteBuffer;
-import java.nio.channels.FileChannel;
 import java.util.HashMap;
 
 /**
@@ -288,6 +276,15 @@ public final class FaceTrackerActivity extends AppCompatActivity {
                 Pair<String, Float> detected = FaceRecognizer.recognizeFaceBitmap(faceBitmap);
 
                 faceFeat.put(face.getId(), detected);
+
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        // Stuff that updates the UI
+//                        ImageView imgView = (ImageView) findViewById(R.id.facePreview);
+//                        imgView.setImageBitmap(quan);
+//                    }
+//                });
             }
             return detectedFaces;
         }
