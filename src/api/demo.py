@@ -110,8 +110,8 @@ elif args.check:
                 minidx = np.argmin(dist)
                 #print(np.ndarray.flatten(dist)[minidx])
                 if np.ndarray.flatten(dist)[minidx] <= args.threshold:
-                    print('%s - %s' % (student_ids[minidx], students[student_ids[minidx]]['name']))
+                    print('%s***%s***' % (student_ids[minidx], students[student_ids[minidx]]['name']), end = '')
                     i += 1
-                    cv2.imwrite('./detected_faces/' + str(i) + '.png', np.transpose(faces[num_feat], (1,2,0))) 
+                    cv2.imwrite('./detected_faces/' + student_ids[minidx] + '.png', np.transpose(faces[num_feat], (1,2,0))) 
                 num_feat += 1
             print('Detected %d faces' % i)
