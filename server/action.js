@@ -158,18 +158,32 @@ exports.checkAttendance = function(req, res, callback){
 				"<body>" + "\n" +
 					"<div id=\"wrapper\" class=\"wrapper\">" + "\n" +
 						"<div id=\"main-content\" class=\"main-content\">" + "\n" +
-							"<h1>Students detected:</h1>" + "\n" +
-							stdout.replace(/\n/g, "</br>\n") +
-						"</div>" + "\n" +
-					"</div>" + "\n" +
-					"<script src=\"js/attendance.js\"></script>" + "\n" +
-				"</body>" + "\n" +
-			"</html>";
+							"<h1>Students detected:</h1>" + "\n";
 
-			fs.writeFile("attendance.html", content, function(err) {
-			    if(err) throw err;
-			    callback();
-			}); 
+			var arr = stdout.split("***");
+			var cnt = 0;
+			for(var i = 0; i < arr.length - 1; i += 2){
+				content += 
+				"<div>" + "\n" +
+					"<img class=\"student_img\" src=\"detected_faces/" + arr[i] + ".png\">" + "\n" +
+					"<p>" + arr[i] + " : " + arr[i+1] + "</p>\n" +
+				"</div>" + "\n";
+
+				cnt++;
+				if(cnt == (arr.length - 1) / 2){
+					content += "<p>" + arr[arr.length - 1] + "</p>\n" +
+								"</div>" + "\n" +
+							"</div>" + "\n" +
+							"<script src=\"js/attendance.js\"></script>" + "\n" +
+						"</body>" + "\n" +
+					"</html>";
+
+					fs.writeFile("attendance.html", content, function(err) {
+					    if(err) throw err;
+					    callback();
+					}); 
+				}
+			}
 		});
 	});
 }
