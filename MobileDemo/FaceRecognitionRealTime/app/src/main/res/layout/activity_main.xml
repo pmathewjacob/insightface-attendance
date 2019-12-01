@@ -24,7 +24,7 @@
         android:layout_height="137dp"
         android:src="@mipmap/taskcon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginVertical="10dp"
         android:layout_below="@+id/title"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="181dp" />
@@ -33,16 +33,15 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="330dp"
+        android:layout_below="@id/logo"
         android:background="@drawable/background">
 
         <Button
             android:id="@+id/btnAddFace"
-            android:clickable="true"
-            android:layout_width="323dp"
-            android:layout_height="63dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="16dp"
             android:background="@drawable/button"
             android:text="Add face"
             android:textAllCaps="false"
@@ -51,10 +50,10 @@
 
         <Button
             android:id="@+id/btnDetect"
-            android:layout_width="323dp"
-            android:layout_height="63dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="16dp"
             android:background="@drawable/button"
             android:text="Detect face"
             android:textAllCaps="false"
@@ -63,10 +62,10 @@
 
         <Button
             android:id="@+id/btnDetectRealTime"
-            android:layout_width="323dp"
-            android:layout_height="63dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="16dp"
             android:background="@drawable/button"
             android:text="Detect realtime"
             android:textAllCaps="false"
@@ -75,10 +74,10 @@
 
         <Button
             android:id="@+id/btnClearFace"
-            android:layout_width="323dp"
-            android:layout_height="63dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="16dp"
             android:background="@drawable/button"
             android:text="Clear face data"
             android:textAllCaps="false"
