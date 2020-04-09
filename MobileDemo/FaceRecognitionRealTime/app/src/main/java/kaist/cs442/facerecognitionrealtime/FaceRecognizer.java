@@ -5,24 +5,24 @@ import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.Pair;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.tensorflow.lite.Interpreter;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 
 public class FaceRecognizer {
@@ -32,7 +32,7 @@ public class FaceRecognizer {
     private static AssetManager assetManager;
     private static Context appContext;
 
-    private static HashMap<String, float[]> faceFeat = new HashMap();
+    private static HashMap<String, HashSet<float[]>> faceFeat = new HashMap<>();
     private static String mapKey = "Face Feature";
 
     // options for model interpreter
@@ -52,7 +52,7 @@ public class FaceRecognizer {
         try{
             tflite = new Interpreter(loadModelFile(modelFileName), tfliteOptions);
             modelName = modelFileName;
-            Log.e("tflite", "Model loaded.");
+            Log.d("tflite", "Model loaded.");
             loadMap(context);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -60,13 +60,19 @@ public class FaceRecognizer {
         }
     }
 
-    public static void addFaceBitmap(Bitmap faceBitmap, String name) {
+    public static void addFaceBitmap(@NotNull Bitmap faceBitmap, String name) {
         Bitmap resizedBitmap = getResizedBitmap(faceBitmap, DIM_IMG_SIZE_X, DIM_IMG_SIZE_Y);
         float[][] feat = new float[1][512];
         tflite.run(convertBitmapToByteBuffer(resizedBitmap), feat);
-        Log.e("tflite", "face added for " + name);
+        Log.d("tflite", "face added for " + name);
         // for(int i=0; i<feat[0].length; i++) Log.e("arr: ", feat[0][i] + "");
-        faceFeat.put(name, normalize(feat[0]));
+        HashSet<float[]> temp = faceFeat.get(name);
+        if (temp != null) {
+            temp.add(normalize(feat[0]));
+        } else {
+            temp = new HashSet<>(Collections.singleton(normalize(feat[0])));
+        }
+        faceFeat.put(name, temp);
         saveMap(appContext);
     }
 
@@ -77,11 +83,13 @@ public class FaceRecognizer {
         curFeat[0] = normalize(curFeat[0]);
 
         Pair<String, Float> best = null;
-        for(HashMap.Entry<String, float[]> entry : faceFeat.entrySet()) {
+        for(HashMap.Entry<String, HashSet<float[]>> entry : faceFeat.entrySet()) {
             String key = entry.getKey();
-            float[] value = entry.getValue();
-            float diff = getFaceDiff(curFeat[0], value);
-            if(best == null || best.second > diff) best = Pair.create(key, diff);
+            HashSet<float[]> values = entry.getValue();
+            for(float[] value : values) {
+                float diff = getFaceDiff(curFeat[0], value);
+                if (best == null || best.second > diff) best = Pair.create(key, diff);
+            }
         }
         return best;
     }
@@ -111,16 +119,15 @@ public class FaceRecognizer {
     }
 
     // Resize bitmap to given dimensions
-    private static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+    private static Bitmap getResizedBitmap(@NotNull Bitmap bm, int newWidth, int newHeight) {
         int width = bm.getWidth();
         int height = bm.getHeight();
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
         Matrix matrix = new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
-        Bitmap resizedBitmap = Bitmap.createBitmap(
+        return Bitmap.createBitmap(
                 bm, 0, 0, width, height, matrix, false);
-        return resizedBitmap;
     }
 
     // converts bitmap to byte array which is passed in the tflite graph
@@ -171,20 +178,12 @@ public class FaceRecognizer {
                 Iterator<String> keysItr = jsonObject.keys();
                 while (keysItr.hasNext()) {
                     String key = keysItr.next();
-                    faceFeat.put(key, JSONArrayToFloatArray(jsonObject.getJSONArray(key)));
+                    faceFeat.put(key, (HashSet<float[]>) jsonObject.get(key));
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static float[] JSONArrayToFloatArray(JSONArray arr) {
-        float[] ans = new float[arr.length()];
-        try {
-            for (int i = 0; i < arr.length(); i++) ans[i] = (float) arr.getDouble(i);
-        } catch (Exception e) {}
-        return ans;
     }
 
     public static void clearMap() {

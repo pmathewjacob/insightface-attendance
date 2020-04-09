@@ -1,7 +1,11 @@
 package kaist.cs442.facerecognitionrealtime;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -16,8 +20,11 @@ import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.media.ExifInterface;
+import androidx.exifinterface.media.ExifInterface;
+
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -27,11 +34,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.IOException;
+import java.util.Objects;
 
 public class AddFaceActivity extends AppCompatActivity {
     final private int TAKE_PHOTO_CODE = 0;
@@ -45,20 +58,24 @@ public class AddFaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_face);
         selectImage(this);
-
         Button addFaceBtn = findViewById(R.id.btnAddFace);
         addFaceBtn.setOnClickListener(view -> {
             EditText nameText = findViewById(R.id.faceName);
             if(nameText.getText().toString().trim().equals(""))
                 Toast.makeText(this, "Name is required", Toast.LENGTH_SHORT).show();
-            else {
+            else if (capturedFace != null) {
+                Log.d(this.getLocalClassName(), "matt:: adding face");
                 FaceRecognizer.addFaceBitmap(capturedFace, nameText.getText().toString());
                 finish();
+            } else {
+                Toast.makeText(this, "Image is required", Toast.LENGTH_SHORT).show();
+                selectImage(this);
             }
         });
     }
 
     private void selectImage(Context context) {
+        Log.d(this.getLocalClassName(), "matt:: starting select image");
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -81,21 +98,24 @@ public class AddFaceActivity extends AppCompatActivity {
     }
 
     // Opens camera for user
+    @SuppressLint("SourceLockedOrientationActivity")
     private void openCameraIntent(){
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
         values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
         // tell camera where to store the resulting picture
-        imageUri = getContentResolver().insert(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        /*imageUri = getContentResolver().insert(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);*/
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // start camera, and wait for it to finish
         startActivityForResult(intent, TAKE_PHOTO_CODE);
     }
 
-    private void detectFace(Bitmap faceImg) {
+    private void detectFace(@NotNull Bitmap faceImg) {
+
+        Log.d(this.getLocalClassName(), "matt:: starting detect");
         faceImg = faceImg.copy(Bitmap.Config.ARGB_8888, true);
         ImageView imageView = findViewById(R.id.faceImg);
         FaceDetector faceDetector = new FaceDetector.Builder(this).setTrackingEnabled(false).build();
@@ -107,6 +127,7 @@ public class AddFaceActivity extends AppCompatActivity {
         SparseArray<Face> faces = faceDetector.detect(frame);
 
         if(faces.size() == 0) {
+            Log.d(this.getLocalClassName(), "matt:: No face found!");
             Toast.makeText(this, "No face found.", Toast.LENGTH_SHORT).show();
             finish();
             return;
@@ -116,43 +137,36 @@ public class AddFaceActivity extends AppCompatActivity {
         Canvas tempCanvas = new Canvas(capturedFace);
         tempCanvas.drawBitmap(faceImg, -face.getPosition().x, -face.getPosition().y, null);
         imageView.setImageBitmap(capturedFace);
+        Log.d(this.getLocalClassName(), "matt:: detection ended");
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode != RESULT_CANCELED) {
+            Log.d(this.getLocalClassName(), "matt:: request code " + requestCode);
             switch (requestCode) {
                 case TAKE_PHOTO_CODE:
-                    if (resultCode == RESULT_OK && data != null) {
-                        ImageDecoder.Source src = ImageDecoder.createSource(getContentResolver(), imageUri);
-                        Bitmap image = null;
-                        try {
-                            image = ImageDecoder.decodeBitmap(src);
-                        } catch (Exception e) {}
-                        if(image != null) detectFace(image);
+                    if (resultCode == RESULT_OK && data != null && data.getExtras() != null) {
+                        detectFace((Bitmap) Objects.requireNonNull(data.getExtras().get("data")));
                     }
-
                     break;
+
                 case GALLERY_PHOTO_CODE:
                     if (resultCode == RESULT_OK && data != null) {
                         Uri selectedImage =  data.getData();
-                        String[] filePathColumn = {MediaStore.Images.Media.DATA};
                         if (selectedImage != null) {
-                            Cursor cursor = getContentResolver().query(selectedImage,
-                                    filePathColumn, null, null, null);
-                            if (cursor != null) {
-                                cursor.moveToFirst();
+                            Glide.with(this).asBitmap().load(selectedImage).into(new CustomTarget<Bitmap>() {
+                                @Override
+                                public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                    detectFace(resource);
+                                }
 
-                                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                                String picturePath = cursor.getString(columnIndex);
-                                Bitmap imgBitmap = BitmapFactory.decodeFile(picturePath);
-                                Bitmap rotatedImgBitmap = modifyOrientation(imgBitmap, picturePath);
-                                detectFace(rotatedImgBitmap);
-                                cursor.close();
-                            }
+                                @Override
+                                public void onLoadCleared(@Nullable Drawable placeholder) {
+                                }
+                            });
                         }
-
                     }
                     break;
             }
