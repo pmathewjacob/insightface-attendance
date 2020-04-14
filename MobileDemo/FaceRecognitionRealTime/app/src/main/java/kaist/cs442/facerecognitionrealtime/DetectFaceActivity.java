@@ -1,7 +1,10 @@
 package kaist.cs442.facerecognitionrealtime;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -16,6 +19,7 @@ import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,9 +32,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
+
+import java.util.Objects;
 
 public class DetectFaceActivity extends AppCompatActivity {
     final private int TAKE_PHOTO_CODE = 0;
@@ -68,15 +77,16 @@ public class DetectFaceActivity extends AppCompatActivity {
     }
 
     // Opens camera for user
+    @SuppressLint("SourceLockedOrientationActivity")
     private void openCameraIntent(){
         ContentValues values = new ContentValues();
         values.put(MediaStore.Images.Media.TITLE, "New Picture");
         values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
         // tell camera where to store the resulting picture
-        imageUri = getContentResolver().insert(
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        //imageUri = getContentResolver().insert(
+        //        MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         // start camera, and wait for it to finish
         startActivityForResult(intent, TAKE_PHOTO_CODE);
@@ -95,7 +105,7 @@ public class DetectFaceActivity extends AppCompatActivity {
         SparseArray<Face> faces = faceDetector.detect(frame);
 
         Canvas sourceCanvas = new Canvas(sourceImg);
-        Bitmap capturedFace = sourceImg;
+        Bitmap capturedFace;
 
         Paint myRectPaint = new Paint();
         myRectPaint.setStrokeWidth(5);
@@ -132,35 +142,26 @@ public class DetectFaceActivity extends AppCompatActivity {
         if(resultCode != RESULT_CANCELED) {
             switch (requestCode) {
                 case TAKE_PHOTO_CODE:
-                    if (resultCode == RESULT_OK && data != null) {
-                        ImageDecoder.Source src = ImageDecoder.createSource(getContentResolver(), imageUri);
-                        Bitmap image = null;
-                        try {
-                            image = ImageDecoder.decodeBitmap(src);
-                        } catch (Exception e) {}
-                        if(image != null) detectFace(image);
+                    if (resultCode == RESULT_OK && data != null && data.getExtras() != null) {
+                        detectFace((Bitmap) Objects.requireNonNull(data.getExtras().get("data")));
                     }
 
                     break;
                 case GALLERY_PHOTO_CODE:
                     if (resultCode == RESULT_OK && data != null) {
                         Uri selectedImage =  data.getData();
-                        String[] filePathColumn = {MediaStore.Images.Media.DATA};
                         if (selectedImage != null) {
-                            Cursor cursor = getContentResolver().query(selectedImage,
-                                    filePathColumn, null, null, null);
-                            if (cursor != null) {
-                                cursor.moveToFirst();
+                            Glide.with(this).asBitmap().load(selectedImage).into(new CustomTarget<Bitmap>() {
+                                @Override
+                                public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                                    detectFace(resource);
+                                }
 
-                                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                                String picturePath = cursor.getString(columnIndex);
-                                Bitmap imgBitmap = BitmapFactory.decodeFile(picturePath);
-                                Bitmap rotatedImgBitmap = modifyOrientation(imgBitmap, picturePath);
-                                detectFace(rotatedImgBitmap);
-                                cursor.close();
-                            }
+                                @Override
+                                public void onLoadCleared(@Nullable Drawable placeholder) {
+                                }
+                            });
                         }
-
                     }
                     break;
             }

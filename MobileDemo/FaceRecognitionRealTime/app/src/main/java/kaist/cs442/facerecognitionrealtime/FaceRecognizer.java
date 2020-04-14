@@ -63,8 +63,9 @@ public class FaceRecognizer {
     public static void addFaceBitmap(@NotNull Bitmap faceBitmap, String name) {
         Bitmap resizedBitmap = getResizedBitmap(faceBitmap, DIM_IMG_SIZE_X, DIM_IMG_SIZE_Y);
         float[][] feat = new float[1][512];
+        long time = System.currentTimeMillis();
         tflite.run(convertBitmapToByteBuffer(resizedBitmap), feat);
-        Log.d("tflite", "face added for " + name);
+        Log.d("tflite", "face added for " + name + " in time: " + (System.currentTimeMillis() - time));
         // for(int i=0; i<feat[0].length; i++) Log.e("arr: ", feat[0][i] + "");
         HashSet<float[]> temp = faceFeat.get(name);
         if (temp != null) {
@@ -79,7 +80,10 @@ public class FaceRecognizer {
     public static Pair<String, Float> recognizeFaceBitmap(Bitmap faceBitmap) {
         Bitmap resizedBitmap = getResizedBitmap(faceBitmap, DIM_IMG_SIZE_X, DIM_IMG_SIZE_Y);
         float[][] curFeat = new float[1][512];
-        tflite.run(convertBitmapToByteBuffer(resizedBitmap), curFeat);
+        ByteBuffer temp = convertBitmapToByteBuffer(resizedBitmap);
+        long time = System.currentTimeMillis();
+        tflite.run(temp , curFeat);
+        Log.d("tflite", "time take:: " + (System.currentTimeMillis() - time));
         curFeat[0] = normalize(curFeat[0]);
 
         Pair<String, Float> best = null;
